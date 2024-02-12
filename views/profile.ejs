@@ -1,0 +1,66 @@
+<%- include("partials/header.ejs") %>
+
+
+<div class="container-fluid text-center mt-4">
+    <h1 class="border-bottom pb-4">Your thoughts and Ideas</h1>
+</div>
+
+<% if (locals.blogText && locals.blogTitle) { %>
+
+    
+<!-- Short preview of a posted Blog. -->
+<div class="container-fluid d-flex justify-content-center mt-4">
+    <div class="col-4 text-center border border-black rounded-3">
+        <h1 class="border-bottom pb-2 text-start pt-2 ps-2"><%= blogTitle %></h1>
+        <p class="m-4 text-muted fst-italic" style="overflow: hidden; max-width: auto;"><%= blogText %></p>
+        <a href="/blogPost">
+            <button class="btn btn-success mb-2">Read more..</button>
+        </a>
+    </div>
+</div>
+
+
+<% } else { %>
+<div class="container-fluid text-center mt-4">
+    <p class="text-muted fst-italic">You haven't posted anything yet.</p>
+</div>
+<% } %> 
+
+<div class="container-fluid justify-content-center mt-5 row border-top pt-4">
+    <button type="button" class="btn btn-success col-3 me-3" data-bs-toggle="modal" data-bs-target="#createBlogModal">Create new thought</button>
+    <button class="btn btn-outline-success col-3">Edit your thought</button>
+</div>
+
+
+<!-- Create Blog Modal -->
+<div class="modal fade" id="createBlogModal" tabindex="-1" aria-labelledby="createBlogModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-3 ps-4" id="createBlogModal">Create a new thought</h1>
+                <button class="btn-close pe-4" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body mt-3">
+                <form action="/createBlog" method="POST">
+                    <div class="row justify-content-center">
+                        <label for="blogTitle" class="fw-bold text-muted mb-2">Title: </label>
+                        <input type="text" class="col-8 rounded-3" name="blogTitle" id="blogTitle" placeholder="...">
+                    </div>
+                    <div class="row justify-content-center mt-2">
+                        <label for="blogText" class="fw-bold text-muted mb-2">Text: </label>
+                        <textarea class="form-control" aria-label="With textarea" name="blogText" id="blogText" cols="30" rows="10" placeholder="..."></textarea>
+                    </div>
+                    <div class="mt-4 text-center">
+                        <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
+                        <button class="btn btn-success" type="submit" value="OK">Create</button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer text-center">
+                <p class="text-muted fst-italic fw-lighter">Your Shareable IdeaBook</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include("partials/footer.ejs") %>

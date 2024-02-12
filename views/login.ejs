@@ -1,0 +1,92 @@
+<%- include("partials/header.ejs") %>
+
+
+<div class="container-fluid login-margin">
+    <div class="row justify-content-center">
+        <div class="col-md-6" style="height: 500px;">
+            <div class="row col my-5 mx-4">
+                <p class="col-sm-8 text-muted text-start">Log in to manage your thoughts and ideas and try to inspire others!</p>
+                <img src="/images/log-in-02-svgrepo-com.svg" alt="login-img" class="col-sm-4 float-end" style="max-height: 100px;">
+                <button type="button" class="btn btn-success mt-3" data-bs-toggle="modal" data-bs-target="#logInModal">Log in to your account!</button>
+            </div>
+            <div>
+                <hr>
+            </div>
+            <div class="row col my-5 mx-4">
+                <p class="col-sm-8 text-muted text-start">Create a new account to get your thoughts and ideas under control!</p>
+                <img src="/images/create-svgrepo-com.svg" alt="create-acc-img" class="col-sm-4 float-end" style="max-height: 100px;">
+                <button type="button" class="btn btn-success mt-3" data-bs-toggle="modal" data-bs-target="#regModal">Create a new account!</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Login Modal -->
+<div class="modal fade" id="logInModal" tabindex="-1" aria-labelledby="loginModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-3 ps-4" id="loginModal">Login</h1>
+                <button type="button" class="btn-close pe-4" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body mt-3">
+                <form action="/submit" method="POST">
+                    <div class="row justify-content-center">
+                        <label for="email" class="fw-bold text-muted mb-2">Email address: </label>
+                        <input class="col-8 rounded-3" type="email" name="email" id="email" placeholder="..." required>
+                    </div>
+                    <div class="row justify-content-center mt-2">
+                        <label for="password" class="fw-bold text-muted mb-2">Password: </label>
+                        <input class="col-8 rounded-3" type="password" name="password" id="password" placeholder="..." required>
+                    </div>
+                    <div class="mt-4 text-center">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" value="OK" class="btn btn-success">Login</button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer text-center">
+                <p class="text-muted fst-italic fw-lighter">Your Shareable IdeaBook</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Register Modal -->
+<div class="modal fade" id="regModal" tabindex="-1" aria-labelledby="regModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-3 ps-4" id="regModal">Create a new account</h1>
+                <button type="button" class="btn-close pe-4" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body mt-3">
+                <form action="/register" method="POST">
+                    <div class="row justify-content-center">
+                        <label for="email" class="fw-bold text-muted mb-2">Email address: </label>
+                        <input class="col-8 rounded-3" type="email" name="email" id="email" placeholder="..." required>
+                    </div>
+                    <div class="row justify-content-center mt-2">
+                        <label for="username" class="fw-bold text-muted mb-2">Username: </label>
+                        <input class="col-8 rounded-3" type="text" name="username" id="username" placeholder="..." required>
+                    </div>
+                    <div class="row justify-content-center mt-2">
+                        <label for="password" class="fw-bold text-muted mb-2">Password: </label>
+                        <input class="col-8 rounded-3" type="password" name="password" id="password" placeholder="..." required>
+                    </div>
+                    <div class="mt-4 text-center">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" value="OK" class="btn btn-success">Create an account</button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer text-center">
+                <p class="text-muted fst-italic fw-lighter">Your Shareable IdeaBook</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<%- include("partials/footer.ejs") %>

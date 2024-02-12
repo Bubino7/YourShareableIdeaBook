@@ -1,0 +1,35 @@
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    margin-top: auto;
+    position: relative;
+}
+
+.main-margin {
+    margin-top: 130px;
+}
+
+.login-margin {
+    margin-top: 220px;
+    height: auto;
+}
+
+#blog {
+    margin: 5% 15%;
+}
+
+@media all and (max-width: 578px) {
+    .main-margin {
+        margin-top: 300px;
+    }
+    .login-margin {
+        margin-top: 120px;
+    }
+    #blog {
+        margin-top: 5%;
+    }
+}
